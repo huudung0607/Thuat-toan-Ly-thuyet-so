@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -15,30 +14,27 @@
 #include <unordered_map>
 using namespace std;
 
-int a[1000005];
-int v[1000005];
+int prime[10000001];
 int mp[1000005];
 int main()
 {
 	int n;
 	cin >> n;
-	int maxval = -1;
+	vector<int> a(n);
 	for (int i = 0; i < n; i++)
 	{
 		cin >> a[i];
 		mp[a[i]]++;
-		maxval = max(maxval, a[i]);
 	}
-	for(int i = maxval; i >= 1; i--){
-		for (int j = i; j <= maxval; j += i) {
-			v[i] += mp[j];
-		}
-	}
+	int maxval = *max_element(a.begin(), a.end());
 	for (int i = maxval; i >= 1; i--) {
-		if (v[i] >= 2) {
+		int cnt = 0;
+		for (int j = i; j <= maxval; j += i) {
+			cnt += mp[j];
+		}
+		if (cnt >= 2) {
 			cout << i;
-			break;
+			return 0;
 		}
 	}
 }
-
