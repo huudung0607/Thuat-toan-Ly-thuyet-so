@@ -1,4 +1,4 @@
-
+//https://yurukute.github.io/Blog/post/2knights/
 #include <iostream>
 #include <algorithm>
 #include <vector>
