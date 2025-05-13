@@ -19,7 +19,7 @@ long long F[5005][5005];
 void pascal(int n) {
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j <= i; j++) {
-			if (i == 0 || j == i) {
+			if (j == 0 || j == i) {
 				F[i][j] = 1;
 			}
 			else F[i][j] = F[i - 1][j - 1] % mod + F[i - 1][j] % mod;
